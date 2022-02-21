@@ -268,7 +268,6 @@ class LfmPath
 
     private function getNewName($file)
     {
-        dd($file->getClientOriginalName());
         $new_file_name = $this->helper->translateFromUtf8(
             trim($this->helper->utf8Pathinfo($file->getClientOriginalName(), "filename"))
         );
@@ -282,8 +281,9 @@ class LfmPath
         }
 
         if ($extension) {
-            $new_file_name_with_extention = $new_file_name . '.' . $extension;
+            $new_file_name_with_extention = $new_file_name . date("dmYhis") . '.' . $extension;
         }
+        dd($new_file_name_with_extention);
 
         if (config('lfm.rename_duplicates') === true) {
             $counter = 1;
