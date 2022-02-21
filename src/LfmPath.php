@@ -281,7 +281,7 @@ class LfmPath
         }
 
         if ($extension) {
-            $new_file_name_with_extention = $new_file_name . date("dmYhis") . '.' . $extension;
+            $new_file_name_with_extention = $new_file_name . '-' . date("dmYhis") . '.' . $extension;
         }
 
         if (config('lfm.rename_duplicates') === true) {
