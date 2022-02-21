@@ -24,7 +24,6 @@
   ],
   "require": {
     "php": ">=7.2.0",
-    "ext-gd": "*",
     "ext-exif": "*",
     "ext-fileinfo": "*",
     "intervention/image": "2.*",
