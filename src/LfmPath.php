@@ -229,7 +229,11 @@ class LfmPath
         try {
             $this->setName($new_file_name)->storage->save($file);
 
-            $this->generateThumbnail($new_file_name);
+            try {
+                $this->generateThumbnail($new_file_name);
+            } catch (Exception $e) {
+                Log::info($e);
+            }
         } catch (\Exception $e) {
             \Log::info($e);
             return $this->error('invalid');
