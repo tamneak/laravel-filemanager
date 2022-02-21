@@ -26,6 +26,7 @@ class UploadController extends LfmController
     public function upload()
     {
         $uploaded_files = request()->file('upload');
+        dd($uploaded_files);
         $error_bag = [];
         $new_filename = null;
 
