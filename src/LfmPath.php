@@ -268,6 +268,7 @@ class LfmPath
 
     private function getNewName($file)
     {
+        dd($file->getClientOriginalName());
         $new_file_name = $this->helper->translateFromUtf8(
             trim($this->helper->utf8Pathinfo($file->getClientOriginalName(), "filename"))
         );
