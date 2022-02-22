@@ -21,11 +21,10 @@ class ItemsController extends LfmController
 
         $perPage = $this->helper->getPaginationPerPage();
         $items = array_merge($this->lfm->folders(), $this->lfm->files());
-
         $itemsList = array_map(function ($item) {
+            dd($item->fill());
             return $item->fill()->attributes;
         }, array_slice($items, ($currentPage - 1) * $perPage, $perPage));
-        dd($itemsList);
 
         return [
             'items' => $itemsList,
