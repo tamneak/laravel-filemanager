@@ -23,11 +23,7 @@ class ItemsController extends LfmController
         $fileAndFolder = array_merge($this->lfm->folders(), $this->lfm->files());
         $items = [];
         foreach ($fileAndFolder as $index=>$item) {
-            $name = $item->name;
-            if($index == 1) {
-                dd($name, strpos($name, ".") );
-            }
-            if(str_contains(".", $name)) {
+            if(strpos($item->name, ".")) {
                 $items[$index] = $item;
             }
         }
