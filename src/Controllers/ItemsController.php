@@ -24,6 +24,7 @@ class ItemsController extends LfmController
 
         return [
             'items' => array_map(function ($item) {
+                dd($item);
                 return $item->fill()->attributes;
             }, array_slice($items, ($currentPage - 1) * $perPage, $perPage)),
             'paginator' => [
