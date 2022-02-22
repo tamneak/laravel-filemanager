@@ -24,6 +24,9 @@ class ItemsController extends LfmController
         $items = [];
         foreach ($fileAndFolder as $index=>$item) {
             $name = $item->name;
+            if($index == 1) {
+                dd(str_contains(".", $name));
+            }
             if(str_contains(".", $name)) {
                 $items[$index] = $item;
             }
