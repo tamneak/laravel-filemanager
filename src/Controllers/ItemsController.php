@@ -20,10 +20,15 @@ class ItemsController extends LfmController
         $currentPage = self::getCurrentPageFromRequest();
 
         $perPage = $this->helper->getPaginationPerPage();
-        $items = array_merge($this->lfm->folders(), $this->lfm->files());
-        dd($items[0]->name);
+        $fileAndFolder = array_merge($this->lfm->folders(), $this->lfm->files());
+        $items = [];
+        foreach ($fileAndFolder as $index=>$item) {
+            $name = $item->name;
+            if(str_contains(".", $name)) {
+                $items[$index] = $item;
+            }
+        }
         $itemsSlice = array_slice($items, ($currentPage - 1) * $perPage, $perPage);
-        dd($itemsSlice);
         $itemsList = array_map(function ($item) {
             return $item->fill()->attributes;
         }, $itemsSlice);
